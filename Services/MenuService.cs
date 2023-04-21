@@ -1,5 +1,7 @@
-// namespace db-project.Services
-// {
+using dbproject.Models.Forms;
+
+namespace dbproject.Services;
+
     internal class MenuService
     {
         public async Task Menu()
@@ -45,7 +47,7 @@
 
         public async Task CreateCase()
         {
-            // var form = new CaseRegistrationForm();
+            var form = new CaseRegForm();
             
             Console.Clear();
             Console.WriteLine("Skapa nytt ärende");
@@ -74,4 +76,3 @@
         }
     }
 
-// }
