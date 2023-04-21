@@ -1,9 +1,15 @@
+using dbproject.Models.Entities;
 using dbproject.Models.Forms;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System;
 
 namespace dbproject.Services;
 
     internal class MenuService
     {
+        private readonly CaseService _caseService = new CaseService();
+        // private readonly CommentService _commentService = new CommentService();
         public async Task Menu()
         {
             {
@@ -52,14 +58,17 @@ namespace dbproject.Services;
             Console.Clear();
             Console.WriteLine("Skapa nytt ärende");
             Console.WriteLine("");
+
+            var result = await _caseService.CreateAsync(form);
+            Console.WriteLine($"Ärendet med nummer {result.caseId} har skapats");
         }
         public async Task ShowAllCases()
         {
             Console.Clear();
             Console.WriteLine("Visa alla ärenden");
             Console.WriteLine();
-            // foreach (var registratedCase in await _caseService.GetAllAsync())
-            // Console.WriteLine($"Ärende med ärendenummer: {result.caseId}");
+            foreach (var registratedCase in await _caseService.GetAllAsync())
+            Console.WriteLine($"{registratedCase.CaseId}, {registratedCase.Description}");
 
         }
         public async Task CommentCase()

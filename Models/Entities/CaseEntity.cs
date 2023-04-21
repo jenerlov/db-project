@@ -20,4 +20,5 @@ namespace dbproject.Models.Entities;
         public UserEntity User {get; set;} = null!;
 
         internal ICollection<CommentEntity> Comments {get; set;} = null!;
-    }
+
+}

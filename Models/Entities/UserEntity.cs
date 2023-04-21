@@ -1,7 +1,7 @@
 namespace dbproject.Models.Entities;
     public class UserEntity
     {
-		public Guid Id { get; set; }
+		public string UserId {get; set;} = Guid.NewGuid().ToString();
 		public string FirstName { get; set; } = null!;
 		public string LastName { get; set; } = null!;
 		public string Email { get; set; } = null!;
