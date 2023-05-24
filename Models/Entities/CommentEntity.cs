@@ -16,4 +16,5 @@ internal class CommentEntity
     [ForeignKey("UserId")]
     [DeleteBehavior(DeleteBehavior.Restrict)]
     public UserEntity User {get; set;} = null!;
+    public string CaseId { get; internal set; } = null!;
 }
